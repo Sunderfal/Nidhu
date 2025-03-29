@@ -1,4 +1,4 @@
-# Nidhu
+# Nidhu 🏠
 Repositorio para proyecto fin de grado | Desarrollo de Aplicaciones Web
 
 Autores: Sergio Gámez Ortega y Sofia Béjar Rimoldi
