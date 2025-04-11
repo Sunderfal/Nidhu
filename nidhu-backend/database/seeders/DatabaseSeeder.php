@@ -21,19 +21,16 @@ class DatabaseSeeder extends Seeder {
 
         foreach($usuarios as $usuario) {
             
-            foreach($pisos as $piso) {
+            $i = 0;
 
-                // Buscamos si el id del usuario coincide con el del propietario del piso
-                if($usuario->idUsuario == $piso["idPropietario"]) {
-                    $idPiso = $piso["idPiso"];
-                }
-
+            while($i < count($pisos) && $usuario->idUsuario != $pisos[$i]["idPropietario"]) {
+                $i++;
             }
             
-            $valores = [rand(1, 10), null];
-
             // Asignamos el piso del usuario al del que es propietario, o a uno aleatorio
-            $usuario->update(["idPiso" => $idPiso ?? $valores[array_rand($valores)]]);
+            $usuario->update([
+                "idPiso" => $i < count($pisos) ? $pisos[$i]["idPiso"] : rand(1, 10)
+            ]);
 
         }
         
